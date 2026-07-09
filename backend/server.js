@@ -38,5 +38,11 @@ if (process.env.NODE_ENV !== "production") {
     console.log(`Server running on ${PORT}`);
   });
 }
+app.get("/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend working"
+  });
+});
 
 export default app;
