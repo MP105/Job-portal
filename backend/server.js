@@ -13,7 +13,6 @@ import applicationRoutes from "./routes/application.route.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
   origin: process.env.CLIENT_URL,
@@ -30,8 +29,16 @@ app.use("/api/v1/company", companyRoutes);
 app.use("/api/v1/job", jobRoutes);
 app.use("/api/v1/application", applicationRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
+// Database Connect
 connectDB();
+
+// Local Development only
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+  });
+}
+
+export default app;
