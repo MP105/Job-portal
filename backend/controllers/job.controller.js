@@ -39,18 +39,33 @@ export const createJob = async (req, res) => {
 };
 export const getAllJobs = async (req, res) => {
   try {
-    const jobs = await Job.find({});
+    const keyword = req.query.keyword || "";
+
+    const query = keyword
+      ? {
+          $or: [
+            { title: { $regex: keyword, $options: "i" } },
+            { description: { $regex: keyword, $options: "i" } },
+          ],
+        }
+      : {};
+
+    const jobs = await Job.find(query).populate({
+      path: "company",
+      strictPopulate: false,
+    });
 
     return res.status(200).json({
       success: true,
       jobs,
     });
   } catch (error) {
-    console.error("GET JOB ERROR:", error);
+    console.error("Populate Error:", error);
 
     return res.status(500).json({
       success: false,
-      message: error.message,
+      error: error.message,
+      stack: error.stack,
     });
   }
 };
