@@ -29,10 +29,8 @@ app.use("/api/v1/company", companyRoutes);
 app.use("/api/v1/job", jobRoutes);
 app.use("/api/v1/application", applicationRoutes);
 
-// Database Connect
 connectDB();
 
-// Local Development only
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
 
