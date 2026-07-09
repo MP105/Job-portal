@@ -39,15 +39,18 @@ export const createJob = async (req, res) => {
 };
 export const getAllJobs = async (req, res) => {
   try {
+    const jobs = await Job.find({});
+
     return res.status(200).json({
       success: true,
-      message: "Route working"
+      jobs,
     });
   } catch (error) {
-    console.error(error);
+    console.error("GET JOB ERROR:", error);
+
     return res.status(500).json({
       success: false,
-      error: error.message
+      message: error.message,
     });
   }
 };
