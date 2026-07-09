@@ -39,32 +39,15 @@ export const createJob = async (req, res) => {
 };
 export const getAllJobs = async (req, res) => {
   try {
-    const keyword = req.query.keyword || "";
-
-    console.log("Keyword:", keyword);
-
-    const query = keyword
-      ? {
-          $or: [
-            { title: { $regex: keyword, $options: "i" } },
-            { description: { $regex: keyword, $options: "i" } },
-          ],
-        }
-      : {};
-
-    const jobs = await Job.find(query).populate("company");
-
-    console.log("Jobs Found:", jobs.length);
-
     return res.status(200).json({
       success: true,
-      jobs,
+      message: "Route working"
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      error: error.message
     });
   }
 };
