@@ -107,24 +107,26 @@ user = {
       role: user.role,
       profile: user.profile,
 }  
-    return res.status(200).cookie("token", token, {
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-      sameSite: "strict",
-      httpOnly: true,
-    }).json({
-      message: `Logged in successfully as ${user.fullname}`,
-      success: true,
-      user,
-    });
+ return res.status(200).cookie("token", token, {
+  maxAge: 24 * 60 * 60 * 1000,
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+}).json({
+  message: `Logged in successfully as ${user.fullname}`,
+  success: true,
+  user,
+});
   } catch (error) {
     console.log(error); }
   };
   export const logout = async (req, res) => {
     try {
-      res.clearCookie("token").json({
-        message: "Logged out successfully",
-        success: true,
-      });
+     res.clearCookie("token", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
     } catch (error) {
       console.log(error);
       return res.status(500).json({ 
