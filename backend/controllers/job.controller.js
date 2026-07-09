@@ -50,10 +50,7 @@ export const getAllJobs = async (req, res) => {
         }
       : {};
 
-    const jobs = await Job.find(query).populate({
-      path: "company",
-      strictPopulate: false,
-    });
+    const jobs = await Job.find(query).populate("company");
 
     return res.status(200).json({
       success: true,
@@ -64,7 +61,7 @@ export const getAllJobs = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      error: error.message,
+      message: error.message,
       stack: error.stack,
     });
   }
