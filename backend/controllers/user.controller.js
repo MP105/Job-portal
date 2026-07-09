@@ -120,21 +120,28 @@ user = {
   } catch (error) {
     console.log(error); }
   };
-  export const logout = async (req, res) => {
-    try {
-     res.clearCookie("token", {
-  httpOnly: true,
-  secure: true,
-  sameSite: "none",
-});
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json({ 
-        message: "Internal Server Error",
-        success: false,
+export const logout = async (req, res) => {
+  try {
+    return res
+      .clearCookie("token", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      })
+      .status(200)
+      .json({
+        success: true,
+        message: "Logged out successfully",
       });
-    } 
-  };
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
 
 export const updateProfile = async (req, res) => {
   try {
