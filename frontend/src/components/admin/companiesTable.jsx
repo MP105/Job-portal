@@ -59,7 +59,7 @@ const CompaniesTable = () => {
   const deleteCompanyHandler = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:8080/api/v1/company/delete/${id}`,
+        `https://job-portal-pied-kappa.vercel.app/api/v1/company/delete/${id}`,
         {
           withCredentials: true,
         }

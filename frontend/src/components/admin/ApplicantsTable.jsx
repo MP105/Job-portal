@@ -30,7 +30,7 @@ function ApplicantsTable({ applicants, loading }) {
 const statusHandler = async (status, applicationId) => {
   try {
     const res = await axios.post(
-      `http://localhost:8080/api/v1/application/status/${applicationId}`,
+      `https://job-portal-pied-kappa.vercel.app/api/v1/application/status/${applicationId}`,
       {
         status: status.toLowerCase(),
       },

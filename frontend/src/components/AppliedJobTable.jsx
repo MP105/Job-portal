@@ -26,7 +26,7 @@ const AppliedJobTable = () => {
     const getAppliedJobs = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/application/get",
+          "https://job-portal-pied-kappa.vercel.app/api/v1/application/get",
           {
             withCredentials: true,
           }

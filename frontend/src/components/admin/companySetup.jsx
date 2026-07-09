@@ -32,7 +32,7 @@ const CompanySetup = () => {
     const getSingleCompany = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/v1/company/get/${companyId}`,
+          `https://job-portal-pied-kappa.vercel.app/api/v1/company/get/${companyId}`,
           {
             withCredentials: true,
           }

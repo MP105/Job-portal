@@ -42,7 +42,7 @@ const JobCreate = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:8080/api/v1/job/post",
+        "https://job-portal-pied-kappa.vercel.app/api/v1/job/post",
         input,
         {
           headers: {

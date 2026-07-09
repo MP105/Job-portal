@@ -16,7 +16,7 @@ console.log("Search Query:", searchQuery);
         setLoading(true);
 
         const res = await axios.get(
-          `http://localhost:8080/api/v1/job/get?keyword=${searchQuery}`,
+          `https://job-portal-pied-kappa.vercel.app/api/v1/job/get?keyword=${searchQuery}`,
           {
             withCredentials: true,
           }

@@ -11,7 +11,7 @@ const useGetAllJobs = () => {
     const fetchAllJobs = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/job/get",
+          "https://job-portal-pied-kappa.vercel.app/api/v1/job/get",
           {
             withCredentials: true,
           }

@@ -87,7 +87,7 @@ function Signup() {
       }
 
       const res = await axios.post(
-        "http://localhost:8080/api/v1/user/register",
+        "https://job-portal-pied-kappa.vercel.app/api/v1/user/register",
         formData,
         {
           headers: {

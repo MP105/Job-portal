@@ -68,7 +68,7 @@ function Login() {
       setSuccess("");
 
       const res = await axios.post(
-        "http://localhost:8080/api/v1/user/login",
+        "https://job-portal-pied-kappa.vercel.app/api/v1/user/login",
         {
           email: form.email,
           password: form.password,

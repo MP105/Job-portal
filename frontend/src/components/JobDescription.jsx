@@ -21,7 +21,7 @@ const isApplied = singleJob?.applicants?.some(
   const applyJobHandler = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:8080/api/v1/application/apply/${jobId}`,
+      `https://job-portal-pied-kappa.vercel.app/api/v1/application/apply/${jobId}`,
       {
         withCredentials: true,
       }
@@ -43,7 +43,7 @@ const isApplied = singleJob?.applicants?.some(
     const fetchSingleJob = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/v1/job/get/${jobId}`,
+          `https://job-portal-pied-kappa.vercel.app/api/v1/job/get/${jobId}`,
           {
             withCredentials: true,
           }

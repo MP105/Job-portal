@@ -10,7 +10,7 @@ const useGetAllAdminJobs = () => {
     const fetchAllAdminJobs = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/job/getadminjobs",
+          "https://job-portal-pied-kappa.vercel.app/api/v1/job/getadminjobs",
           {
             withCredentials: true,
           }

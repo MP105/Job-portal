@@ -10,7 +10,7 @@ const useGetAllCompanies = () => {
     const fetchAllCompanies = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8080/api/v1/company/get",
+          "https://job-portal-pied-kappa.vercel.app/api/v1/company/get",
           {
             withCredentials: true,
           }
