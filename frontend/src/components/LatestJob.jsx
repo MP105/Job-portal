@@ -15,18 +15,20 @@ const LatestJobs = () => {
         Job Openings
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
-
-     {allJobs.length <= 0 ? (
-          <span>No Job Available</span>
-        ) : (
-          allJobs
-            .slice(0, 6)
-            .map((job) => (
-              <LatestJobCards key={job._id} job={job} />
-            ))
-        )}
-      </div>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
+  {allJobs.length <= 0 ? (
+    <span>No Job Available</span>
+  ) : (
+    [...allJobs]
+      .sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      )
+      .slice(0, 8)
+      .map((job) => (
+        <LatestJobCards key={job._id} job={job} />
+      ))
+  )}
+</div>
     </div>
   );
 };
