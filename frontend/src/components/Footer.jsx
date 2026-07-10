@@ -100,9 +100,18 @@ function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t mt-10 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} JobPortal. All Rights Reserved.
-        </div>
+ <div className="border-t mt-10 pt-6 text-center text-sm text-gray-500">
+  <p>
+    © {new Date().getFullYear()} JobPortal. All Rights Reserved.
+  </p>
+
+  <p className="mt-2">
+    Crafted with ❤️ by{" "}
+    <span className="font-bold text-purple-600">
+      Mahima Pandey
+    </span>
+  </p>
+</div>
 
       </div>
     </footer>
