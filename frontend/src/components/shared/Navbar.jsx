@@ -135,7 +135,11 @@ console.log(user?.role === "recruiter");
               </Avatar>
             </PopoverTrigger>
 
-            <PopoverContent className="w-72">
+         <PopoverContent
+  align="end"
+  sideOffset={10}
+  className="w-80 rounded-2xl border bg-white shadow-2xl z-[9999] p-5"
+>
               <div className="space-y-4">
 
                 <div className="flex items-center gap-3">

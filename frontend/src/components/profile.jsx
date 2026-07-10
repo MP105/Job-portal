@@ -22,8 +22,7 @@ const Profile = () => {
     <>
       <Navbar />
 
-      <div className="bg-slate-50 min-h-screen py-6 px-3 sm:px-5">
-
+<div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-violet-100 py-8 px-4">
         {/* Profile Card */}
         <div className="max-w-5xl mx-auto bg-white border rounded-3xl shadow-md p-5 sm:p-8">
 
