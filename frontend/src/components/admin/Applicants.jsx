@@ -22,7 +22,7 @@ function Applicants() {
         setLoading(true);
 
         const res = await axios.get(
-          ` https://job-portal-pied-kappa.vercel.app/api/v1/application/${id}/applicants`,
+          `https://job-portal-pied-kappa.vercel.app/api/v1/application/${id}/applicants`,
           {
             withCredentials: true,
           }

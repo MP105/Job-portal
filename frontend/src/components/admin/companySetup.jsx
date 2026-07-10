@@ -96,7 +96,7 @@ const CompanySetup = () => {
       }
 
       const res = await axios.put(
-  `http://localhost:8080/api/v1/company/update/${companyId}`,
+  `https://job-portal-pied-kappa.vercel.app/api/v1/company/update/${companyId}`,
   formData,
   {
     headers: {
