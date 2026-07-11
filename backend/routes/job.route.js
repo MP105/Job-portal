@@ -4,6 +4,7 @@ import {
   getAllJobs,
   getJobById,
   getAdminJobS,
+    updateJob,
 } from "../controllers/job.controller.js";
 
 import { isAuthenticated } from "../middlewares/isAuthenticated.js";
