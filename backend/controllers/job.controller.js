@@ -130,3 +130,64 @@ export const getAdminJobS = async (req, res) => {
         });
     }
 };
+//jobupdate by admin//
+export const updateJob = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const {
+      title,
+      description,
+      requirements,
+      location,
+      jobType,
+      salary,
+      experience,
+      position,
+      companyId,
+    } = req.body;
+
+    const updatedData = {
+      title,
+      description,
+      location,
+      jobType,
+      salary: Number(salary),
+      experienceLevel: Number(experience),
+      position: Number(position),
+      company: companyId,
+      requirements: requirements
+        ? requirements.split(",").map((item) => item.trim())
+        : [],
+    };
+
+    const job = await Job.findByIdAndUpdate(
+      id,
+      updatedData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    ).populate("company");
+
+    if (!job) {
+      return res.status(404).json({
+        message: "Job not found",
+        success: false,
+      });
+    }
+
+    return res.status(200).json({
+      message: "Job updated successfully",
+      success: true,
+      job,
+    });
+  } catch (error) {
+    console.error("Update Job Error:", error);
+
+    return res.status(500).json({
+      message: error.message,
+      success: false,
+    });
+  }
+};

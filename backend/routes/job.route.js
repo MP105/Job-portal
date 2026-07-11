@@ -21,5 +21,9 @@ router.route("/get/:jobId").get(isAuthenticated, getJobById);
 
 // Get All Jobs Created By Recruiter/Admin
 router.route("/getadminjobs").get(isAuthenticated, getAdminJobS);
-
+// update job //
+router.route("/update/:id").put(
+  isAuthenticated,
+  updateJob
+);
 export default router;

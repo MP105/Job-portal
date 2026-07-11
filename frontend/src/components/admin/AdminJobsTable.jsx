@@ -18,7 +18,7 @@ import {
 import {
   Edit2,
   MoreHorizontal,
-  Trash2,
+
    Eye,
 } from "lucide-react";
 
@@ -101,18 +101,29 @@ useEffect(() => {
                     </PopoverTrigger>
 
 <PopoverContent className="w-48 p-2">
-  <div className="space-y-1">
+<div className="space-y-1">
 
+  <button
+    onClick={() =>
+      navigate(`/admin/jobs/${job._id}/applicants`)
+    }
+    className="flex items-center gap-2 w-full px-3 py-2 rounded-md hover:bg-gray-100"
+  >
+    <Eye className="w-4 h-4" />
+    <span>Applicants</span>
+  </button>
 
-    <button
-      onClick={() => navigate(`/admin/jobs/${job._id}/applicants`)}
-      className="flex items-center gap-2 w-full px-3 py-2 rounded-md hover:bg-gray-100"
-    >
-      <Eye className="w-4 h-4" />
-      <span>Applicants</span>
-    </button>
+  <button
+    onClick={() =>
+      navigate(`/admin/jobs/update/${job._id}`)
+    }
+    className="flex items-center gap-2 w-full px-3 py-2 rounded-md hover:bg-gray-100"
+  >
+    <Edit2 className="w-4 h-4" />
+    <span>Edit Job</span>
+  </button>
 
-  </div>
+</div>
 </PopoverContent>
                   </Popover>
                 </TableCell>
